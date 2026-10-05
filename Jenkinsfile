@@ -4,26 +4,26 @@ pipeline {
     stages {
         stage('Build Docker Image') {
             steps {
-                bat 'docker build -t dockerpipeline .'
+                sh 'docker build -t dockerpipeline .'
             }
         }
 
         stage('Run Test Container') {
             steps {
-                bat 'docker run -d --name dockerpipeline-test -p 3001:3000 dockerpipeline'
+                sh 'docker run -d --name dockerpipeline-test -p 3001:3000 dockerpipeline'
             }
         }
 
         stage('Test Application') {
             steps {
-                bat 'curl http://localhost:3001'
+                sh 'curl http://localhost:3001'
             }
         }
 
         stage('Cleanup') {
             steps {
-                bat 'docker stop dockerpipeline-test'
-                bat 'docker rm dockerpipeline-test'
+                sh 'docker stop dockerpipeline-test || true'
+                sh 'docker rm dockerpipeline-test || true'
             }
         }
     }
