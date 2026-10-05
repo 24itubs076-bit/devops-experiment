@@ -16,7 +16,7 @@ pipeline {
 
         stage('Test Application') {
             steps {
-                sh 'curl http://localhost:3001'
+                sh 'curl http://host.docker.internal:3001'
             }
         }
 
