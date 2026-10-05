@@ -1,0 +1,12 @@
+{
+  "name": "dockerpipeline",
+  "version": "1.0.0",
+  "description": "Jenkins Docker Pipeline",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "express": "^4.21.2"
+  }
+}

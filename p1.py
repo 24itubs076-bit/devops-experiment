@@ -1,3 +1,10 @@
-print("Hello Students")
-print("This is my first Git experiment")
-print("Feature branch change")
+from flask import Flask
+
+app = Flask(__name__)
+
+@app.route("/")
+def home():
+    return "<h1>Welcome to Kubernetes Practical.</h1>"
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000)
